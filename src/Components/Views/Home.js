@@ -25,7 +25,7 @@ const Home = () => {
 
 
 
-    const [addFood, setAddFood] = useState("")
+    const [addFood, setAddFood] = useState("pizza hut")
     const [userId, setUserId] = useState("")
 
     // const Push = () => {
@@ -83,7 +83,7 @@ const Home = () => {
             <nav>
                 <p> Welcome Home { }
                     <form>
-                        <input name="food" value={food} onChange={(e) => setAddFood(e.target.value)} />
+                        <input name="food" value={addFood} onChange={(e) => setAddFood(e.target.value)} />
 
                         <button type="submit" onClick={submit}> save food </button>
                     </form>
