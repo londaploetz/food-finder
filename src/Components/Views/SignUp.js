@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase/firebase';
+import { auth} from '../firebase/firebase';
+import { db } from '../firebase/firebase';
+import {collection, getDocs, getDoc, addDoc, updateDoc, deleteDoc, doc, 
+} from "firebase/firestore"
+
+
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -10,14 +15,19 @@ const Signup = () => {
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('');
+    const [currentUserUID, setCurrentUserUID] = useState(null);
+    const [loggedIn, setLoggedIn] = useState(false);
 
-    const onSubmit = async (e) => {
+    
+    
+      const onSubmit = async (e) => {
         e.preventDefault()
 
         await createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
+            .then((res) => {
+                const { user } = res;
                 // Signed in 
-                const user = userCredential.user;
+
                 console.log(user);
                 navigate("/login")
                 // ...
@@ -29,7 +39,22 @@ const Signup = () => {
                 // ..
             });
 
+          
 
+      auth().onAuthStateChanged((user) => {
+        if (user) {
+          const currentUID = user.uid;
+          setCurrentUserUID(currentUID)
+          .doc(collection(db, "users"))
+            .doc(currentUID)
+            .get()
+            .then((snapshot) => {
+              const data = snapshot.data();
+              setLoggedIn(true);
+              console.log(currentUID)
+            });
+        }
+      });
     }
 
 

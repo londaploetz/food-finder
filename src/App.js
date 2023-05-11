@@ -1,5 +1,4 @@
 import React from 'react';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Components/RunningSections/Header';
 import Login from './Components/Views/Welcome';
