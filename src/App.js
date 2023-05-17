@@ -6,22 +6,27 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import {Routes, Route} from 'react-router-dom';
 import Home from './Components/Views/Home';
 import Signup from './Components/Views/SignUp';
+import { AuthProvider } from './provider/AuthProvider';
 
 function App() {
 
   return (
     <div className="App">
         <Router>
+       
+        <AuthProvider>
        <Routes>
         <Route 
                   path="/home"
                   element={
                   < Home />
                   }
-                />
-                <Route path="/" element={<Signup/>}/>
-              <Route path="/login" element={<Login/>}/>
+                /> 
+                <Route path="/login" element={<Login/>}/>
+                <Route path="/signup" element={<Signup/>}/>
+             
             </Routes>  
+            </AuthProvider>
              </Router>       
     </div>
   );

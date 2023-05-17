@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {  signInWithEmailAndPassword   } from 'firebase/auth';
-import { auth } from '../firebase/firebase.js';
+import { auth } from '../../firebase/firebase.js';
 import { NavLink, useNavigate } from 'react-router-dom'
+import { db } from '../../firebase/firebase.js';
 
  
 const Login = () => {
@@ -25,6 +26,8 @@ const Login = () => {
         });
        
     }
+    
+ 
  
     return(
         <>

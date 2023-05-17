@@ -1,94 +1,94 @@
-import React, { useState } from 'react';
-import { signOut } from "firebase/auth";
+import React, { useState, useContext } from 'react';
+import { getAuth, signOut } from "firebase/auth";
 
 import { useNavigate } from 'react-router-dom';
-import { db } from '../firebase/firebase';
-import { auth } from '../firebase/firebase';
+import { db } from '../../firebase/firebase';
+import { auth } from '../../firebase/firebase';
 import { signUp } from "../Views/SignUp"
+import { Signup } from "../Views/SignUp"
 import {
-    collection, getDocs, getDoc, addDoc, updateDoc, deleteDoc, doc,
-} from "firebase/firestore"
+    collection, getDocs, getDoc, addDoc, updateDoc, deleteDoc, doc, setDoc
+} from "firebase/firestore"; 
+import { AuthProvider } from '../../provider/AuthProvider';
+import authMethods from "../../firebase/authMethods"
+
+
 
 const Home = () => {
+   
+  
+    const auth = getAuth();
+    const user = auth.currentUser;
+    if (user !== null) {
+    }
 
     const navigate = useNavigate();
 
     const handleLogout = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
-            navigate("/");
-            console.log("Signed out successfully")
+            navigate("/Login");
+            // console.log("Signed out successfully")
         }).catch((error) => {
             // An error happened.
         });
     }
 
+      const [addFood, setAddFood] = useState("")
 
 
-    const [addFood, setAddFood] = useState("pizza hut")
-    const [userId, setUserId] = useState("")
+ 
+    // const data = {
+    //     food: addFood,
+    //     id: userId,
+    // };
 
-    // const Push = () => {
-    //     db.ref("foodlist").set({
-    //       food : food
-    //     }).catch(alert);
-    //   }
-    // const handleSubmit = async (e) => {
-    //     e.prevent.default(); 
-    //     setFood("")
-    // }
-
-    // const newFood = {
-    //       food : food, 
-
-    // }
-    // console.log(newFood)
-
-
-    // console.log(firstName)
-
-    // const foodRef = collection(db, "foodlist");   
-    //      console.log(foodRef); 
-
-    //         const addFood = (newFood) => {
-    //             return addDoc (foodRef, newFood)
-    //         }
-
-    // updateFood = (id, updatedFood) => {
-    //     const foodDoc = doc(db, "food", id); 
-    //     return updateDoc(foodDoc, updatedFood)
-    // }
-    // const foodRef =  db.collection("foodlist").setData(food)
-
-    // console.log(foodRef); 
-
-    //    const addFood = (newFood) => {
-    //        return addDoc (foodRef, newFood)
-    //    }
-
-    const submit = (e) => {
+    const submit = async (e) => {
         e.preventDefault();
-        db.collection("foodlist").add({
+
+        await addDoc(collection(db, "foodlist"), {
             food: addFood,
-            id: userId,
-        });
-        console.log(db.collection("foodlist"))
-        setAddFood("");
-        setUserId("");
-    };
+            id: user.uid, 
+       
+          });
+   
+ };
 
+ const getList = async () => {
 
+    const docRef = doc(db, "foodlist");
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+  console.log("Document data:", docSnap.data());
+   } else {
+  // docSnap.data() will be undefined in this case
+  console.log("No such document!");
+}
+ }
     return (
         <>
             <nav>
-                <p> Welcome Home { }
+                <div> Welcome Home 
                     <form>
-                        <input name="food" value={addFood} onChange={(e) => setAddFood(e.target.value)} />
+                        <input 
+                        name="food" 
+                        value={addFood} 
+                        placeholder  = "add food" 
+                        onChange={(e) => setAddFood(e.target.value)} 
+                        label="name"
+                        type="text"
+                       />
 
                         <button type="submit" onClick={submit}> save food </button>
                     </form>
-                </p>
+                    
+                </div>
                 <div>
+                    <button onClick={getList}>
+                        list
+                    </button>
+                    <>  </>
                     <button onClick={handleLogout}>
                         Logout
                     </button>
