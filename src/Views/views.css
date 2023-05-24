@@ -1,0 +1,160 @@
+.login-btn{
+    background-color: rgba(255, 0, 0, 0);
+    color: red;
+    border: none;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    top: 30px;
+    width: 30%;
+    border: 1px solid red;
+    border-radius: 10px;
+    background-color: rgb(253, 228, 0);
+      background-repeat: no-repeat;
+      background-size: contain;
+      font-family: 'Wix Madefor Display', sans-serif;
+}
+.login-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left: 40%;
+    top: 7ch;
+    width: 60ch;
+    height: 80ch;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.login-container h3{
+    color: rgb(95, 95, 95);
+    text-align: center;
+}
+.login-container h1{
+    text-align: center;
+    color: red;
+    top:-40px;
+    position: relative; 
+}
+
+.login-btn-ctr{
+    text-align: center;
+
+
+
+}
+
+.signup-lnk{
+color: red;
+position: relative;
+text-decoration: none;
+text-align: center;
+padding: 10px;
+font-family: 'Wix Madefor Display', sans-serif;
+top: 30px;
+}
+
+.label-form{
+    color: rgb(252, 68, 68);
+    padding: 10px;
+    font-family: 'Wix Madefor Display', sans-serif;
+}
+
+
+.user-login-form{
+  
+}
+
+.password-input{
+    background-color: rgb(255, 255, 254) ;
+    font-family: 'Wix Madefor Display', sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+
+
+.login-email{
+display: flex;
+flex-direction: column;
+}
+
+.login-password{
+    display: flex;
+    flex-direction: column;
+}
+
+    form {
+    font-family: 'Red Hat Display', sans-serif;
+      display: flex;
+     flex-direction: column;
+     padding-left: 15ch;
+     border: none;
+     position: relative;
+     padding-bottom: 50px;
+     border-radius: 10px;
+ 
+    }
+  
+    .lock-icon{
+        position: absolute;
+        left: 150px;
+        top: 60px;
+        color: gray;
+        position: absolute;
+        left: 150px;
+        top: 155px;
+        color: gray;
+    }
+    .user-icon{
+        position: absolute;
+        left: 150px;
+        top: 60px;
+        color: gray;
+    }
+
+    input{
+      width: 70%;
+      height: 5ch;
+      background-color: #f8f8f8;
+      border: none;
+      padding-left: 45px;
+      
+     
+    }
+    .field input::-webkit-input-placeholder {
+        color: rgba(255, 255, 255, 0.8);
+      }
+   
+    .field input::-moz-placeholder {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .field input:-ms-input-placeholder {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .field input:-moz-placeholder {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    main {
+        width: 100%;
+        height: 110ch;
+        background-image: linear-gradient(
+            10deg,
+            hsl(55deg 100% 50%) 0%,
+            hsl(50deg 100% 59%) 9%,
+            hsl(45deg 100% 63%) 18%,
+            hsl(39deg 100% 65%) 27%,
+            hsl(33deg 97% 68%) 36%,
+            hsl(29deg 87% 69%) 45%,
+            hsl(25deg 75% 70%) 55%,
+            hsl(18deg 63% 71%) 64%,
+            hsl(13deg 61% 69%) 73%,
+            hsl(8deg 65% 65%) 82%,
+            hsl(5deg 68% 60%) 91%,
+            hsl(0deg 72% 53%) 100%
+          );
+          background-repeat: no-repeat;
+          background-size: cover;
+          
+    }

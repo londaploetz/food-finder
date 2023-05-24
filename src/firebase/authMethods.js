@@ -6,22 +6,25 @@ import {
     collection, getDocs, getDoc, addDoc, updateDoc, deleteDoc, doc, setDoc
 } from "firebase/firestore";
 
-const signUp = async (email, password, displayName) => {
+const signUp = async (email, password, displayName, currentUID) => {
  
-
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
       password, 
       displayName, 
+      currentUID
     );
-    const user = userCredential.user;
+
+    const userProfile = userCredential.user;
     await addDoc(collection(db, "users"), {
-      id: user.uid,
-      email: user.email,
+      id: userProfile.uid,
+      email: userProfile.email,
       displayName: displayName, 
+      currentUID: userProfile.uid
     });
+  
     return true
   } catch (error) {
     return { error: error.message }

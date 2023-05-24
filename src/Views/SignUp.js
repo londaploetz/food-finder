@@ -1,19 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../firebase/firebase';
-import { db } from '../../firebase/firebase';
+import { auth } from '../firebase/firebase';
+import { db } from '../firebase/firebase';
 import {
     collection, getDocs, getDoc, addDoc, updateDoc, deleteDoc, doc, setDoc
 } from "firebase/firestore";
 import { getAuth } from 'firebase/auth';
-import signUp from "../../firebase/authMethods"
-
+import signUp from "../firebase/authMethods"
+import  AuthContext  from "../AuthContext.js";
+import { AuthProvider } from '../provider/AuthProvider.js';
+import { onAuthStateChanged } from "firebase/auth"
+import "./views.css"
 
 
 
 const Signup = () => {
-
+   const { user } = useContext(AuthContext); 
     const navigate = useNavigate();
 
     const [displayName, setDisplayName] = useState('')
@@ -28,12 +31,15 @@ const Signup = () => {
 
 
     const onSubmit = async (e) => {
+     
         e.preventDefault()
 
         setEmail("");
         setPassword("");
-       
+       const currentUID = user.uid 
+       setCurrentUID(currentUID)
         navigate("/Home")
+        console.log(currentUID)
 
         const res = await signUp(email, password, displayName);
         if (res.error) seterror(res.error)

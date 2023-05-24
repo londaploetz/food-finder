@@ -1,11 +1,11 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './Components/RunningSections/Header';
-import Login from './Components/Views/Welcome';
+import Header from './RunningSections/Header';
+import Login from './Views/Welcome';
 import { BrowserRouter as Router } from 'react-router-dom';
 import {Routes, Route} from 'react-router-dom';
-import Home from './Components/Views/Home';
-import Signup from './Components/Views/SignUp';
+import Home from './Views/Home';
+import Signup from './Views/SignUp';
 import { AuthProvider } from './provider/AuthProvider';
 
 function App() {
@@ -18,6 +18,12 @@ function App() {
        <Routes>
         <Route 
                   path="/home"
+                  element={
+                  < Home />
+                  }
+                /> 
+                 <Route 
+                  path="/"
                   element={
                   < Home />
                   }
