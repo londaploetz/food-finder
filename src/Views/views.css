@@ -5,7 +5,8 @@
     justify-content: center;
     text-align: center;
     padding: 10px;
-    top: 30px;
+    position: relative;
+
     width: 30%;
     border: 1px solid red;
     border-radius: 10px;
@@ -22,21 +23,21 @@
     left: 40%;
     top: 7ch;
     width: 60ch;
-    height: 80ch;
+    height: 90ch;
+    padding-top: 5%;
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-.login-container h3{
-    color: rgb(95, 95, 95);
-    text-align: center;
-}
+
 .login-container h1{
     text-align: center;
     color: red;
-    top:-40px;
-    position: relative; 
+    top: -2ch;
+    position: relative;
+    font-family: 'Wix Madefor Display', sans-serif; 
+    padding-top: 40px;
 }
 
 .login-btn-ctr{
@@ -53,7 +54,10 @@ text-decoration: none;
 text-align: center;
 padding: 10px;
 font-family: 'Wix Madefor Display', sans-serif;
-top: 30px;
+top: 0px;
+border: none;
+background-color: #f8f8f800;
+left: 19ch;
 }
 
 .label-form{
@@ -87,7 +91,7 @@ flex-direction: column;
 
     form {
     font-family: 'Red Hat Display', sans-serif;
-      display: flex;
+    display: flex;
      flex-direction: column;
      padding-left: 15ch;
      border: none;
@@ -156,5 +160,57 @@ flex-direction: column;
           );
           background-repeat: no-repeat;
           background-size: cover;
+          z-index: -1;
           
+    }
+
+    .card-header{
+       background-color: rgba(255, 255, 255, 0);
+        border: none;
+    }
+   
+    .card{
+  border: none;
+    }
+    .custom-toggle{
+        background-color: red;
+    }
+    .accordion{
+
+    }
+
+    .card-form{
+     
+    }
+
+    .label-signup{
+        display: flex;
+        flex-direction: column;
+        color: #fa0000;
+        font-family: 'Wix Madefor Display', sans-serif;
+    }
+    .input-signup{
+        position: relative;
+        text-align: left ;
+        padding-left:2ch;
+        font-family: 'Wix Madefor Display', sans-serif;
+    }
+
+    .account-btn{
+        background-color: rgba(255, 0, 0, 0);
+        color: red;
+        position: relative;
+        border: none;
+        justify-content: center;
+        text-align: center;
+        padding: 10px;
+        top: 30px;
+        left: 20px;
+        width: 50%;
+        border: 1px solid red;
+        border-radius: 10px;
+        background-color: rgb(253, 228, 0);
+          background-repeat: no-repeat;
+          background-size: contain;
+          font-family: 'Wix Madefor Display', sans-serif;
     }

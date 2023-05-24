@@ -6,6 +6,7 @@ import { db } from '../firebase/firebase.js';
 import AuthContext from "../AuthContext.js";
 import { AuthProvider } from '../provider/AuthProvider.js';
 import "./views.css"
+import Signup from "./Signup.js"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faLock, faUser } from '@fortawesome/free-solid-svg-icons'
@@ -18,6 +19,7 @@ const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
 
     const onLogin = (e) => {
         e.preventDefault();
@@ -37,6 +39,9 @@ const Login = () => {
     }
 
 
+    
+
+
 
     return (
         <>
@@ -44,7 +49,6 @@ const Login = () => {
                 <section>
                     <div className='login-container'>
                         <h1> Feeling Hungry? </h1>
-                        <h3> Login </h3>
                         <form className='user-login-form'>
                             <div className='login-email'>
                                 <label htmlFor="email-address"
@@ -91,11 +95,9 @@ const Login = () => {
                                 Login
                             </button>
                         </div>
-                        <NavLink className='signup-lnk'
 
-                            to="/signup"
-                        > Sign Up
-                        </NavLink>
+                        <Signup> 
+                        </Signup>
 
 
                     </div>

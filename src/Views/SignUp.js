@@ -8,15 +8,35 @@ import {
 } from "firebase/firestore";
 import { getAuth } from 'firebase/auth';
 import signUp from "../firebase/authMethods"
-import  AuthContext  from "../AuthContext.js";
+import AuthContext from "../AuthContext.js";
 import { AuthProvider } from '../provider/AuthProvider.js';
 import { onAuthStateChanged } from "firebase/auth"
 import "./views.css"
 
+import Accordion from 'react-bootstrap/Accordion';
+import { useAccordionButton } from 'react-bootstrap/AccordionButton';
+import Card from 'react-bootstrap/Card';
+
+function CustomToggle({ children, eventKey }) {
+    const decoratedOnClick = useAccordionButton(eventKey, () =>
+        console.log('totally custom!'),
+    );
+
+    return (
+        <button
+            className='signup-lnk'
+            type="button"
+            style={{ color: 'red' }}
+            onClick={decoratedOnClick} 
+        >
+            {children}
+        </button>
+    );
+}
 
 
 const Signup = () => {
-   const { user } = useContext(AuthContext); 
+    const { user } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const [displayName, setDisplayName] = useState('')
@@ -31,13 +51,13 @@ const Signup = () => {
 
 
     const onSubmit = async (e) => {
-     
+
         e.preventDefault()
 
         setEmail("");
         setPassword("");
-       const currentUID = user.uid 
-       setCurrentUID(currentUID)
+        const currentUID = user.uid
+        setCurrentUID(currentUID)
         navigate("/Home")
         console.log(currentUID)
 
@@ -50,93 +70,85 @@ const Signup = () => {
 
 
 
-return (
-    <div >
+    return (
+        <div >
 
-        <div className="flex h-screen items-center justify-center px-4 sm:px-6 lg:px-8">
-            <div className="w-full max-w-md space-y-8">
-                <div>
+            <Accordion className='accordion' defaultActiveKey="0">
+                <Card className='card'>
+                    <Card.Header className='card-header'>
+                        <CustomToggle className="custom-toggle" eventKey="1">Sign Up</CustomToggle>
+                    </Card.Header>
+                    <Accordion.Collapse eventKey="1">
+                        <Card.Body>
+                            <form onSubmit={onSubmit} className="signup-form" >
+                                <div className="card-form">
+                                    <div>
+                                        <label htmlFor="email-address" className="label-signup">
+                                          Name
+                                        </label>
+                                        <input
+                                            label="name"
+                                            value={displayName}
+                                            onChange={(e) => setDisplayName(e.target.value)}
+                                            name="displayName"
+                                            type="text"
+                                            required
+                                            className='input-signup'
+                                            placeholder="Name"
+                                        />
+                                    </div>
 
-                    <h2 className="text-white text-center text-base  tracking-tight text-gray-900">
+                                    <div>
+                                        <label htmlFor="email-address" className="label-signup">
+                                            Email address
+                                        </label>
+                                        <input
+                                            type="email"
+                                            label="Email address"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            required
+                                            className='input-signup'
+                                            placeholder="Email address"
+                                        />
+                                    </div>
 
-                    </h2>
-                </div>
+                                    <div>
+                                        <label htmlFor="password" className="label-signup">
+                                            Password
+                                        </label>
+                                        <input
+                                            type="password"
+                                            label="Create password"
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                            required
+                                            className='input-signup'
+                                            placeholder="Password"
+                                        />
+                                    </div>
+                                </div>
 
+                                <div>
+                                    <button
+                                        type="submit"
+                                        onClick={onSubmit}
+                                        className='account-btn'
 
-                <form onSubmit={onSubmit} className="mt-8 space-y-6" >
-                    <div className=" space-y-6 rounded-md shadow-sm">
-                        <div>
-                            <label htmlFor="email-address" className="sr-only">
+                                    >
+                                        Create Account
+                                    </button>
+                                </div>
 
-                            </label>
-                            <input
-                                label="name"
-                                value={displayName}
-                                onChange={(e) => setDisplayName(e.target.value)}
-                                name="displayName"
-                                type="text"
-                                required
-                                className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                                placeholder="First name"
-                            />
-                        </div>
+                            </form>
+                        </Card.Body>
+                    </Accordion.Collapse>
+                </Card>
+            </Accordion>
 
-                        <div>
-                            <label htmlFor="email-address" className="sr-only">
-                                Email address
-                            </label>
-                            <input
-                                type="email"
-                                label="Email address"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                                className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                                placeholder="Email address"
-                            />
-                        </div>
-
-                        <div>
-                            <label htmlFor="password" className="sr-only">
-                                Password
-                            </label>
-                            <input
-                                type="password"
-                                label="Create password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                                className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                                placeholder="Password"
-                            />
-                        </div>
-                    </div>
-
-                    <div>
-                        <button
-                            type="submit"
-                            onClick={onSubmit}
-                            className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                        >
-                            Sign up
-                        </button>
-                    </div>
-
-                </form>
-
-
-                <p className="text-sm text-white text-center">
-                    Already have an account?{' '}
-                    <NavLink to="/login" className="underline text-tertiary">
-                        Sign in
-                    </NavLink>
-                </p>
-
-            </div>
         </div>
 
-    </div>
-)
+    )
 }
 
 export default Signup

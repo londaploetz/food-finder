@@ -5,7 +5,7 @@ import Login from './Views/Welcome';
 import { BrowserRouter as Router } from 'react-router-dom';
 import {Routes, Route} from 'react-router-dom';
 import Home from './Views/Home';
-import Signup from './Views/SignUp';
+import Signup from './Views/Signup';
 import { AuthProvider } from './provider/AuthProvider';
 
 function App() {

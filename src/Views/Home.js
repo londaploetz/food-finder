@@ -4,8 +4,8 @@ import { getAuth, signOut } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase/firebase';
 import { auth } from '../firebase/firebase';
-import { signUp } from "./SignUp"
-import { Signup } from "./SignUp"
+import { signUp } from "./Signup"
+import { Signup } from "./Signup"
 import {
     collection, getDocs, getDoc, query, addDoc, updateDoc, where, deleteDoc, doc, setDoc
 } from "firebase/firestore";
