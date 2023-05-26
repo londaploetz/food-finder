@@ -1,149 +1,166 @@
-.login-btn{
+.login-btn {
     background-color: rgba(255, 0, 0, 0);
-    color: red;
+    color: rgb(92, 147, 199);
     border: none;
     justify-content: center;
     text-align: center;
     padding: 10px;
     position: relative;
-
+    
     width: 30%;
-    border: 1px solid red;
+    border: 1px solid rgb(92, 147, 199);
     border-radius: 10px;
-    background-color: rgb(253, 228, 0);
-      background-repeat: no-repeat;
-      background-size: contain;
-      font-family: 'Wix Madefor Display', sans-serif;
+    background-color: rgb(250, 241, 164);
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-family: 'Comfortaa', cursive;
 }
-.login-container{
+
+.login-container {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    left: 40%;
+
+    left: 38%;
     top: 7ch;
     width: 60ch;
-    height: 90ch;
+    height: 100%;
     padding-top: 5%;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 253, 247);
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
+@media (max-width: 990px) {
 
-.login-container h1{
+    .login-container {
+        left: 20%;
+    }
+}
+
+
+.login-container h1 {
     text-align: center;
-    color: red;
-    top: -2ch;
+    color: rgb(0, 0, 0);
+    top: 0ch;
     position: relative;
-    font-family: 'Wix Madefor Display', sans-serif; 
-    padding-top: 40px;
+    font-family: 'Comfortaa', cursive;
+    width: 90%;
+    left: 1ch;
+    font-size: 50px;
+    color: rgb(92, 147, 199);
+    padding-top: 0ch;
+    padding-bottom: 1ch;
 }
 
-.login-btn-ctr{
+.login-btn-ctr {
     text-align: center;
 
 
 
 }
 
-.signup-lnk{
-color: red;
-position: relative;
-text-decoration: none;
-text-align: center;
-padding: 10px;
-font-family: 'Wix Madefor Display', sans-serif;
-top: 0px;
-border: none;
-background-color: #f8f8f800;
-left: 19ch;
-}
-
-.label-form{
-    color: rgb(252, 68, 68);
+.signup-lnk {
+    color: rgb(92, 147, 199) !important;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
     padding: 10px;
-    font-family: 'Wix Madefor Display', sans-serif;
+    font-family: 'Comfortaa', cursive;
+    top: 0px;
+    border: none;
+    background-color: #f8f8f800;
+    left: 21ch;
+}
+
+.label-form {
+    color: rgb(92, 147, 199);
+    padding: 10px;
+    font-family: 'Comfortaa', cursive;
 }
 
 
-.user-login-form{
-  
-}
+.user-login-form {}
 
-.password-input{
-    background-color: rgb(255, 255, 254) ;
-    font-family: 'Wix Madefor Display', sans-serif;
+.password-input {
+    background-color: rgb(255, 255, 254);
+    font-family: 'Comfortaa', cursive;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
 
 
-.login-email{
-display: flex;
-flex-direction: column;
-}
-
-.login-password{
+.login-email {
     display: flex;
     flex-direction: column;
 }
 
-    form {
-    font-family: 'Red Hat Display', sans-serif;
+.login-password {
     display: flex;
-     flex-direction: column;
-     padding-left: 15ch;
-     border: none;
-     position: relative;
-     padding-bottom: 50px;
-     border-radius: 10px;
- 
-    }
-  
-    .lock-icon{
-        position: absolute;
-        left: 150px;
-        top: 60px;
-        color: gray;
-        position: absolute;
-        left: 150px;
-        top: 155px;
-        color: gray;
-    }
-    .user-icon{
-        position: absolute;
-        left: 150px;
-        top: 60px;
-        color: gray;
-    }
+    flex-direction: column;
+}
 
-    input{
-      width: 70%;
-      height: 5ch;
-      background-color: #f8f8f8;
-      border: none;
-      padding-left: 45px;
-      
-     
-    }
-    .field input::-webkit-input-placeholder {
-        color: rgba(255, 255, 255, 0.8);
-      }
-   
-    .field input::-moz-placeholder {
-      color: rgba(255, 255, 255, 0.8);
-    }
-    .field input:-ms-input-placeholder {
-      color: rgba(255, 255, 255, 0.8);
-    }
-    .field input:-moz-placeholder {
-      color: rgba(255, 255, 255, 0.8);
-    }
-    main {
-        width: 100%;
-        height: 110ch;
-        background-image: linear-gradient(
+form {
+    font-family: 'Comfortaa', cursive;
+    display: flex;
+    flex-direction: column;
+    padding-left: 15ch;
+    border: none;
+    position: relative;
+    padding-bottom: 50px;
+    border-radius: 10px;
+
+}
+
+.lock-icon {
+    position: absolute;
+    left: 150px;
+    top: 60px;
+    color: gray;
+    position: absolute;
+    left: 150px;
+    top: 155px;
+    color: gray;
+}
+
+.user-icon {
+    position: absolute;
+    left: 150px;
+    top: 60px;
+    color: gray;
+}
+
+input {
+    width: 70%;
+    height: 5ch;
+    background-color: #f8f8f8;
+    border: none;
+    padding-left: 45px;
+
+
+}
+
+.field input::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.field input::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.field input:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.field input:-moz-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+main {
+    width: 100%;
+    height: 120ch;
+    /* background-image: linear-gradient(
             10deg,
             hsl(55deg 100% 50%) 0%,
             hsl(50deg 100% 59%) 9%,
@@ -158,59 +175,79 @@ flex-direction: column;
             hsl(5deg 68% 60%) 91%,
             hsl(0deg 72% 53%) 100%
           );
-          background-repeat: no-repeat;
-          background-size: cover;
-          z-index: -1;
           
-    }
+          background-size: cover; */
+    background-image: url(../Assets/utensils.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 
-    .card-header{
-       background-color: rgba(255, 255, 255, 0);
-        border: none;
-    }
-   
-    .card{
-  border: none;
-    }
-    .custom-toggle{
-        background-color: red;
-    }
-    .accordion{
+}
 
-    }
+.card-header {
+    background-color: rgb(255, 253, 247);
+    border: none;
 
-    .card-form{
-     
-    }
+}
 
-    .label-signup{
-        display: flex;
-        flex-direction: column;
-        color: #fa0000;
-        font-family: 'Wix Madefor Display', sans-serif;
-    }
-    .input-signup{
-        position: relative;
-        text-align: left ;
-        padding-left:2ch;
-        font-family: 'Wix Madefor Display', sans-serif;
-    }
+.card {
+    background-color: rgb(255, 253, 247);
+    border: none;
+    padding-bottom: 4ch;
+    padding-top: 4ch;
+}
 
-    .account-btn{
-        background-color: rgba(255, 0, 0, 0);
-        color: red;
-        position: relative;
-        border: none;
-        justify-content: center;
-        text-align: center;
-        padding: 10px;
-        top: 30px;
-        left: 20px;
-        width: 50%;
-        border: 1px solid red;
-        border-radius: 10px;
-        background-color: rgb(253, 228, 0);
-          background-repeat: no-repeat;
-          background-size: contain;
-          font-family: 'Wix Madefor Display', sans-serif;
-    }
+.custom-toggle {
+    background-color: rgb(92, 147, 199);
+}
+
+.accordion {}
+
+.card-form {}
+
+.label-signup {
+    display: flex;
+    flex-direction: column;
+    color: rgb(92, 147, 199);
+    font-family: 'Comfortaa', cursive;
+}
+
+.input-signup {
+    position: relative;
+    text-align: left;
+    padding-left: 2ch;
+    font-family: 'Comfortaa', cursive;
+}
+
+.account-btn {
+    background-color: rgb(255, 253, 247);
+    color: rgb(92, 147, 199);
+    position: relative;
+    border: none;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    top: 30px;
+    left: 20px;
+    width: 50%;
+    border: 1px solid rgb(92, 147, 199);
+    border-radius: 10px;
+    background-color: rgb(247, 239, 167);
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-family: 'Comfortaa', cursive;
+}
+
+.logout-btn{
+    color: rgb(245, 245, 245);
+    /* border: 1px solid rgb(255, 255, 255); */
+    border: none;
+    border-radius: 10px;
+    background-color:  #7f8ac7;
+    top: 50ch;
+    position: relative;
+    left: 60ch;
+    font-size: 20px;
+    font-family: 'Comfortaa', cursive;
+    
+    
+}

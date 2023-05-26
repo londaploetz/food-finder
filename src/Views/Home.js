@@ -13,6 +13,7 @@ import { AuthProvider } from '../provider/AuthProvider';
 import authMethods from "../firebase/authMethods";
 import FilterRestaurants from '../Components/Restaurants/FilterRestaurants';
 import "./views.css"
+import Header from '../RunningSections/Header';
 
 
 const Home = () => {
@@ -51,9 +52,9 @@ const Home = () => {
         <>
             <nav>
 
-                <div> 
+                <div> <Header> </Header>
                     <div className="food-content">
-                    {
+                    {/* {
                         profileName.map((user, i) => (
                             <p key={i}>
                                 Welcome Home
@@ -63,11 +64,11 @@ const Home = () => {
                                 
                             </p>
                         ))
-                    }
+                    } */}
                 </div>
                     <FilterRestaurants />
 
-                    <button onClick={handleLogout}>
+                    <button  className= "logout-btn"onClick={handleLogout}>
                         Logout
                     </button>
                 </div>
