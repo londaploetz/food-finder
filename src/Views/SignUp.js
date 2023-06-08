@@ -7,8 +7,8 @@ import {
     collection, getDocs, getDoc, addDoc, updateDoc, deleteDoc, doc, setDoc
 } from "firebase/firestore";
 import { getAuth } from 'firebase/auth';
-import signUp from "../firebase/authMethods"
-import AuthContext from "../AuthContext.js";
+
+import {AuthContext} from "../provider/AuthProvider";
 import { AuthProvider } from '../provider/AuthProvider.js';
 import { onAuthStateChanged } from "firebase/auth"
 import "./views.css"
@@ -19,7 +19,7 @@ import Card from 'react-bootstrap/Card';
 
 function CustomToggle({ children, eventKey }) {
     const decoratedOnClick = useAccordionButton(eventKey, () =>
-        console.log('totally custom!'),
+        console.log('toggle sign up'),
     );
 
     return (
@@ -36,34 +36,73 @@ function CustomToggle({ children, eventKey }) {
 
 
 const Signup = () => {
-    const { user } = useContext(AuthContext);
+      const { userContext, 
+        signUp, 
+        onSubmit, 
+        email,
+        displayName,
+        password,
+        setPassword,
+        setEmail,
+        setDisplayName, 
+        currentUID } = useContext(AuthContext);
+
     const navigate = useNavigate();
 
-    const [displayName, setDisplayName] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('');
-    const [currentUID, setCurrentUID] = useState(null);
-    const [loggedIn, setLoggedIn] = useState(false);
-    const [userssData, setUsersData] = useState([]);
-    const [error, seterror] = useState("");
+    // const [displayName, setDisplayName] = useState('')
+    // const [email, setEmail] = useState('')
+    // const [password, setPassword] = useState('');
+    // const [currentUID, setCurrentUID] = useState(null);
+    // const [loggedIn, setLoggedIn] = useState(false);
+    // const [userssData, setUsersData] = useState([]);
+    // const [error, seterror] = useState("");
 
 
 
 
-    const onSubmit = async (e) => {
+    // const createAccount = async (email, password, displayName) => {
 
-        e.preventDefault()
+    //     try {
+    //       const userCredential = await createUserWithEmailAndPassword(
+    //         auth,
+    //         email,
+    //         password, 
+    //         displayName, 
+          
+    //       );
+      
+    //       const userProfile = userCredential.userContext;
+    //       await addDoc(collection(db, "users"), {
+    //         id: userProfile.uid,
+    //         email: userProfile.email,
+    //         displayName: displayName, 
+            
+    //       });
+         
+         
+    //       return true
+    //     } catch (error) {
+    //       return { error: error.message }
+    //     }
+       
+    //   };
 
-        setEmail("");
-        setPassword("");
-        const currentUID = user.uid
-        setCurrentUID(currentUID)
-        navigate("/Home")
-        console.log(currentUID)
 
-        const res = await signUp(email, password, displayName);
-        if (res.error) seterror(res.error)
-    }
+    // const onSubmit = async (e) => {
+
+    //     e.preventDefault()
+
+    //     setEmail("");
+    //     setPassword("");
+    //     const currentUID = userContext.uid
+    //     setCurrentUID(currentUID)
+    //     navigate("/Home")
+    //     console.log(userContext)
+
+    //     const res = await signUp(email, password, displayName, currentUID);
+    //     if (res.error) seterror(res.error)
+       
+    // }
 
 
 

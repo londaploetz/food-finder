@@ -1,5 +1,8 @@
 .header{
-    background-color: rgb(250, 243, 183);
+ 
+    background-image: url(../Assets/utensils.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 width: 100%;
 height: 20ch;
 font-family: 'Comfortaa', cursive;
@@ -9,6 +12,7 @@ font-family: 'Comfortaa', cursive;
     color:  #7f8ac7;
     text-align: center;
     top: 40px;
+    font-size: 47px;
 
     
    

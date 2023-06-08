@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { AuthMethods } from "../../firebase/authMethods";
 import { db } from "../../firebase/firebase";
 import { getAuth } from "firebase/auth";
@@ -10,16 +10,20 @@ import "./restaurants.css"
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { AuthProvider } from '../../provider/AuthProvider';
+import { AuthContext } from "../../provider/AuthProvider";
+import { TestContext } from "../../AuthContext";
+
 
 function FilterRestaurants() {
 
-    const user = auth.currentUser;
-    if (user !== null) {
-    }
+
 
     const [food, setFood] = useState("")
     const [foodCollection, setFoodCollection] = useState([])
 
+    const { displayName, currentUID } = useContext(AuthContext);
+  
 
 
     const addFood = async (e) => {
@@ -27,50 +31,46 @@ function FilterRestaurants() {
 
         await addDoc(collection(db, "foodlist"), {
             food: food,
-            id: user.uid,
-
-
+            id: currentUID,
         });
         fetchFood();
-
+        setFood("");
     };
-
 
 
     const fetchFood = async () => {
 
-        const q = query(collection(db, "foodlist"), where("id", "==", `${user.uid}`));
-
+        const q = query(collection(db, "foodlist"), where("id", "==", currentUID));
         const querySnapshot = await getDocs(q);
         const savedFood = [];
         querySnapshot.forEach((doc) => {
             savedFood.push({ ...doc.data() });
-
+            // console.log(foodCollection)
         });
         setFoodCollection(savedFood);
+        // console.log(currentUID)
 
     }
 
     useEffect(() => {
         fetchFood();
-    }, [foodCollection])
+    }, [])
 
 
 
     return (
         <>
 
-
             <Container className="food-container" fluid>
                 <Row className="add-food">
                     <form className="food-form">
                         <input
-
                             placeholder="add food"
                             onChange={(e) => setFood(e.target.value)}
                             type="text"
                             onSubmit={addFood}
                             className="food-input"
+                            value={food}
                         />
 
                         <button type="submit" className="food-submit-btn" onClick={addFood}> save food </button>
@@ -83,17 +83,13 @@ function FilterRestaurants() {
                     {
                         foodCollection?.map((food, i) => (
                             <h1 key={i}
-                                className="food-list">{food.food} {food.displayName}</h1>
+                                className="food-list">{food.food} </h1>
 
                         ))
                     }
                 </Row>
             </Container>
-
-
         </>
-
-
     )
 }
 export default FilterRestaurants;
