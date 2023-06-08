@@ -1,5 +1,5 @@
 .food-input{
-    width: 50%;
+    width: 70%;
     border-radius: 10px;
 }
 .food-submit-btn{
@@ -9,14 +9,13 @@ border: #7f8ac7;
 background-color: rgb(250, 248, 165);
 border-radius: 10px;
 position: relative;
-left: 2ch;
+left: 15px;
 }
 .food-content{
-    width: 100%;
     background-color: #d3d8f5;
 }
 .food-container{
-    width: 100%;
+    /* width: 100%; */
     background-color: #7f8ac7;
     position: relative;
     
@@ -28,11 +27,9 @@ left: 2ch;
     top: 20px;
 }
 .food-list{
-color: black;
+color: rgb(63, 63, 63);
 font-size: 20px;
 position: relative;
 text-align: center;
-}
-.add-food{
-    
+
 }

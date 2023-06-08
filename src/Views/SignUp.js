@@ -36,7 +36,7 @@ function CustomToggle({ children, eventKey }) {
 
 
 const Signup = () => {
-      const { userContext, 
+      const { 
         signUp, 
         onSubmit, 
         email,
@@ -44,7 +44,11 @@ const Signup = () => {
         password,
         setPassword,
         setEmail,
-        setDisplayName, 
+        setDisplayName,
+        firstName, 
+        lastName, 
+        setFirstName, 
+        setLastName,  
         currentUID } = useContext(AuthContext);
 
     const navigate = useNavigate();
@@ -122,10 +126,36 @@ const Signup = () => {
                             <form onSubmit={onSubmit} className="signup-form" >
                                 <div className="card-form">
                                     <div>
-                                        <label htmlFor="email-address" className="label-signup">
-                                          Name
+                                        <label htmlFor="firstName" className="label-signup">
+                                          First Name
                                         </label>
                                         <input
+                                            label="first-name"
+                                            value={firstName}
+                                            onChange={(e) => setFirstName(e.target.value)}
+                                            name="firstName"
+                                            type="text"
+                                            required
+                                            className='input-signup'
+                                            placeholder="First Name"
+                                        />
+                                        <label htmlFor="lastName" className="label-signup">
+                                          Last Name
+                                        </label>
+                                           <input
+                                            label="last-name"
+                                            value={lastName}
+                                            onChange={(e) => setLastName(e.target.value)}
+                                            name="lastName"
+                                            type="text"
+                                            required
+                                            className='input-signup'
+                                            placeholder="Last Name"
+                                        />
+                                        <label htmlFor="displayName" className="label-signup">
+                                          display Name
+                                        </label>
+                                         <input
                                             label="name"
                                             value={displayName}
                                             onChange={(e) => setDisplayName(e.target.value)}

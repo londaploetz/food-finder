@@ -15,7 +15,7 @@ import { faLock, faUser } from '@fortawesome/free-solid-svg-icons'
 
 
 const Login = () => {
-    const { userContext, setUserContext, email,
+    const { email,
         displayName,
         password,
         setPassword,

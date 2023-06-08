@@ -12,12 +12,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { AuthProvider } from '../../provider/AuthProvider';
 import { AuthContext } from "../../provider/AuthProvider";
-import { TestContext } from "../../AuthContext";
-
+import UserAbout from "../UserAbout/UserAbout.js"; 
 
 function FilterRestaurants() {
-
-
 
     const [food, setFood] = useState("")
     const [foodCollection, setFoodCollection] = useState([])
@@ -45,16 +42,16 @@ function FilterRestaurants() {
         const savedFood = [];
         querySnapshot.forEach((doc) => {
             savedFood.push({ ...doc.data() });
-            // console.log(foodCollection)
+            
         });
-        setFoodCollection(savedFood);
-        // console.log(currentUID)
+     
+       setFoodCollection(savedFood);
 
     }
 
     useEffect(() => {
         fetchFood();
-    }, [])
+    }, [foodCollection])
 
 
 
@@ -76,9 +73,7 @@ function FilterRestaurants() {
                         <button type="submit" className="food-submit-btn" onClick={addFood}> save food </button>
                     </form>
                 </Row>
-
-
-
+              
                 <Row className="food-content">
                     {
                         foodCollection?.map((food, i) => (

@@ -7,10 +7,10 @@ import {AuthContext} from "../provider/AuthProvider";
 
 
 function Header() {
-    const { userContext, handleLogout, displayName } = useContext(AuthContext);
+    const { handleLogout, displayName } = useContext(AuthContext);
     return (
         <div className="header">
-            <h1 className="welcome-header"> Welcome! {displayName} </h1>
+            <h1 className="welcome-header"> Welcome, {displayName}!</h1>
         </div>
 
 

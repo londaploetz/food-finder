@@ -12,28 +12,32 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
 
-  const [displayName, setDisplayName] = useState('party')
+  const [displayName, setDisplayName] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('');
   const [currentUID, setCurrentUID] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
   const [error, seterror] = useState("");
-  const [userContext, setUserContext] = useState(null);
+  const [aboutMe, setAboutMe] = useState("");
   const navigate = useNavigate();
 
 
-  const getDisplayName = async (user) => { 
-         
+  const getDisplayName = async (user) => {    
     const q = query(collection(db, "users"), where("id", "==", user.uid));
-        
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-
       setDisplayName(doc.data().displayName)
+      setFirstName(doc.data().firstName)
+      setLastName(doc.data().lastName)
+      setAboutMe(doc.data().aboutMe)
+      console.log(doc.data().lastName)
+      console.log(doc.data().aboutMe)
     });
-   
-    // ...
 }
+
+
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -65,13 +69,16 @@ onAuthStateChanged(auth, (user) => {
 
  
       const userProfile = userCredential.user;
-      await addDoc(collection(db, "users"), {
+      await setDoc(doc(db, "users", userProfile.uid), {
         id: userProfile.uid,
         email: userProfile.email,
         displayName: displayName,
+        firstName: firstName, 
+        lastName: lastName, 
+        aboutMe: aboutMe
 
       });
-      // console.log(userProfile.email)
+    
       return true
     } catch (error) {
       return { error: error.message }
@@ -121,21 +128,19 @@ onAuthStateChanged(auth, (user) => {
     }
   }
 
-  const handleLogout = () => {
-    signOut(auth).then(() => {
-      // Sign-out successful.
-      navigate("/Login");
-      // console.log("Signed out successfully")
-    }).catch((error) => {
-      // An error happened.
-    });
-  }
+  // const handleLogout = () => {
+  //   signOut(auth).then(() => {
+  //     // Sign-out successful.
+  //     navigate("/Login");
+  //     // console.log("Signed out successfully")
+  //   }).catch((error) => {
+  //     // An error happened.
+  //   });
+  // }
 
 
   return (
     <AuthContext.Provider value={{
-      userContext,
-      setUserContext,
       email,
       displayName,
       password,
@@ -145,11 +150,13 @@ onAuthStateChanged(auth, (user) => {
       onSubmit,
       onLogin,
       signUp,
-      handleLogout,
       currentUID,
-
-
-
+      aboutMe, 
+      setAboutMe, 
+      firstName, 
+      lastName, 
+      setFirstName, 
+      setLastName
     }}>{children}</AuthContext.Provider>
   );
 };
