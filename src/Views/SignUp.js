@@ -21,7 +21,6 @@ function CustomToggle({ children, eventKey }) {
     const decoratedOnClick = useAccordionButton(eventKey, () =>
         console.log('toggle sign up'),
     );
-
     return (
         <button
             className='signup-lnk'

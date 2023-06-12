@@ -20,11 +20,12 @@ export const AuthProvider = ({ children }) => {
   const [currentUID, setCurrentUID] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
   const [error, seterror] = useState("");
-  const [aboutMe, setAboutMe] = useState("");
+  const [aboutMe, setAboutMe] = useState("hello");
+  const [favList, setFavList] = useState("")
   const navigate = useNavigate();
 
 
-  const getDisplayName = async (user) => {    
+  const getUser = async (user) => {
     const q = query(collection(db, "users"), where("id", "==", user.uid));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
@@ -32,31 +33,19 @@ export const AuthProvider = ({ children }) => {
       setFirstName(doc.data().firstName)
       setLastName(doc.data().lastName)
       setAboutMe(doc.data().aboutMe)
-      console.log(doc.data().lastName)
-      console.log(doc.data().aboutMe)
     });
-}
+  }
 
 
-
-onAuthStateChanged(auth, (user) => {
+  onAuthStateChanged(auth, (user) => {
     if (user) {
-     getDisplayName(user); 
-     const uid = user.uid;
-     setCurrentUID(uid); 
+      getUser(user)
+      const uid = user.uid;
+      setCurrentUID(uid);
     } else {
-
     }
-});
-//  onAuthStateChanged(auth, (user) => {
-//     if (user) {
-//       const uid = user.uid;
-//       setCurrentUID(uid)
-//     } else {
-//       // User is signed out
-//       // ...
-//     }
-//   });
+  });
+
 
   const signUp = async (email, password) => {
     try {
@@ -67,18 +56,17 @@ onAuthStateChanged(auth, (user) => {
         password,
       );
 
- 
+
       const userProfile = userCredential.user;
       await setDoc(doc(db, "users", userProfile.uid), {
         id: userProfile.uid,
         email: userProfile.email,
         displayName: displayName,
-        firstName: firstName, 
-        lastName: lastName, 
+        firstName: firstName,
+        lastName: lastName,
         aboutMe: aboutMe
-
       });
-    
+
       return true
     } catch (error) {
       return { error: error.message }
@@ -151,11 +139,11 @@ onAuthStateChanged(auth, (user) => {
       onLogin,
       signUp,
       currentUID,
-      aboutMe, 
-      setAboutMe, 
-      firstName, 
-      lastName, 
-      setFirstName, 
+      aboutMe,
+      setAboutMe,
+      firstName,
+      lastName,
+      setFirstName,
       setLastName
     }}>{children}</AuthContext.Provider>
   );
