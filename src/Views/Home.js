@@ -18,6 +18,8 @@ import { AuthContext } from "../provider/AuthProvider";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import FriendsList from '../Components/Friends/FriendsList';
+import AddFriends from '../Components/Friends/AddFriends';
 
 const Home = () => {
     const { displayName } = useContext(AuthContext);
@@ -54,7 +56,8 @@ const Home = () => {
                     </Col>
                 </Row>
             </Container>
-            
+            <AddFriends> </AddFriends>
+         
             <button className="logout-btn" onClick={handleLogout}>
                 Logout
             </button>

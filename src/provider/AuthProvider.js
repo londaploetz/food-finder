@@ -64,7 +64,8 @@ export const AuthProvider = ({ children }) => {
         displayName: displayName,
         firstName: firstName,
         lastName: lastName,
-        aboutMe: aboutMe
+        aboutMe: aboutMe, 
+        group: [], 
       });
 
       return true
@@ -144,7 +145,8 @@ export const AuthProvider = ({ children }) => {
       firstName,
       lastName,
       setFirstName,
-      setLastName
+      setLastName, 
+    
     }}>{children}</AuthContext.Provider>
   );
 };
