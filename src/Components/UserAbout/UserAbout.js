@@ -1,13 +1,15 @@
 import React, { useContext, useState, useEffect } from "react";
-import "./userabout.css"
+import "./userabout.css"; 
 import { AuthContext } from "../../provider/AuthProvider";
 import { doc, updateDoc, collection, where, query, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import Button from 'react-bootstrap/Button';
+import Favorites from "../Favorites/Favorites.js";
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCogs } from '@fortawesome/free-solid-svg-icons'
+import { faCogs } from '@fortawesome/free-solid-svg-icons'; 
+
 
 function UserAbout() {
 
@@ -51,7 +53,7 @@ function UserAbout() {
     });
     setUserAboutInfo(...savedAbout)
     setAboutMe(userAboutInfo)
-    console.log(userAboutInfo)
+    
   }
 
   useEffect(() => {
@@ -101,7 +103,7 @@ function UserAbout() {
       <h1 className="profileName"> {firstName} {lastName} </h1>
 
       {userAboutInfo}
-
+   
     </div>
   );
 }

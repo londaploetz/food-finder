@@ -65,7 +65,7 @@ export const AuthProvider = ({ children }) => {
         firstName: firstName,
         lastName: lastName,
         aboutMe: aboutMe, 
-        group: [], 
+        group: [],
       });
 
       return true

@@ -32,35 +32,39 @@ function AddFriends() {
     const q = query(collection(db, "users"), where("id", "==", currentUID));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data())
+     
+      console.log("group", doc.id, " => ", doc.data().group)
       setUser(doc.data())
+
       setFriends(doc.data().group)
     });
-
   }
 
 
   const addFriends = async () => {
     const q = query(collection(db, "users"), where("displayName", "==", friendsUsernameInput));
+    console.log("friendsusernameinput", friendsUsernameInput)
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((docsnapshot) => {
-      const addNewMember = friends;
-      addNewMember.push(docsnapshot.data());
-      const addNewFriends = {
-        group: addNewMember,
+      const newFriendProfile = friends;
+      newFriendProfile.push(docsnapshot.data());
+      console.log("docsnapshot.data()", docsnapshot.data())
+      console.log("newFriendProfile", newFriendProfile)
+      const userAddedNewFriend = {
+        group: newFriendProfile,
         id: user.id,
         displayName: user.displayName
       }
-      setFriends(addNewMember)
-      setUser(addNewFriends);
-
-      setDoc((doc(db, "users", currentUID), addNewFriends))
+      
+      setFriends(newFriendProfile)
+      console.log(newFriendProfile)
+      setUser(userAddedNewFriend);
+      const newFriends = doc(db, "users", currentUID)
+      setDoc(newFriends, userAddedNewFriend)
       // console.log(currentUID)
       // // console.log(uid)
       // console.log(friendsUsernameInput)
       setFriendsUsernameInput('');
-
-
     });
   }
 
@@ -68,10 +72,9 @@ function AddFriends() {
   useEffect(() => {
     if (currentUID !== null) {
       setUserId(currentUID)
-      console.log(userId)
-   
+      console.log(user)
       console.log(friends)
-      getFriends()
+    getFriends()
     }
   }, [currentUID, userId]);
 
