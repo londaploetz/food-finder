@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { getAuth, signOut } from "firebase/auth";
-
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { db } from '../firebase/firebase';
 import { auth } from '../firebase/firebase';
 import UserAbout from '../Components/UserAbout/UserAbout';
@@ -20,6 +19,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import FriendsList from '../Components/Friends/FriendsList';
 import AddFriends from '../Components/Friends/AddFriends';
+import SelectPlace from "../Components/Restaurants/SelectPlace"; 
+import SortRestaurants from '../Components/Restaurants/SortRestaurants';
 
 const Home = () => {
     const { displayName } = useContext(AuthContext);
@@ -57,10 +58,11 @@ const Home = () => {
                 </Row>
             </Container>
             <AddFriends> </AddFriends>
-         
+          <SortRestaurants> </SortRestaurants>
             <button className="logout-btn" onClick={handleLogout}>
-                Logout
-            </button>
+                Logout  
+            </button> 
+          
         </div>
     )
 }

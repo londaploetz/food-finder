@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import AddFriends from "./AddFriends";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 function AddGroup({ friendsUsernameInput, handleFriendsChange, addFriends, friends, getFriends }) {
+    const [showFriends, setShowFriends] = useState(false)
+
+
+    const showFriendsList = (e) => {
+
+        if (showFriends === false) {
+            setShowFriends(true)
+
+        } else if (showFriends === true) {
+            setShowFriends(false)
+        }
+        console.log(showFriends)
+    }
+
 
 
     return (
@@ -21,14 +35,12 @@ function AddGroup({ friendsUsernameInput, handleFriendsChange, addFriends, frien
             <Button onClick={addFriends}>
                 Submit
             </Button>
-            <Button onClick={getFriends}>
-                get friends
-            </Button>
-            {friends.map((friend, i) => (
+            <Button className="switch-btn" onClick={showFriendsList}> {showFriends === false ? "show friends" : "close"} </Button>
+            {showFriends === true && friends.map((friend, i) => (
                 <h1 key={i} > {friend.displayName} </h1>
-            ))}
-            {/* <h1>{friends[0].displayName}</h1> */}
-            
+            ))
+            }
+
         </Form>
     );
 }

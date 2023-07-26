@@ -33,3 +33,16 @@ position: relative;
 text-align: center;
 
 }
+.carousel-wrapper{
+    position: relative;
+    width: 900px;
+    height: 400px;
+    background-color: aqua;
+    color: black;
+}
+.carousel-caption{
+    position: relative;
+    color: black;
+    font-size: 20px;
+
+}

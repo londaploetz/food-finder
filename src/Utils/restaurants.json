@@ -1,0 +1,128 @@
+{
+    "restaurants": [
+        {
+            "name": "Saltgrass Steak House",
+            "cuisineType": "American, Bar, Pub, Steakhouse"
+        },
+        {
+            "name": "Taco Bell",
+            "cuisineType": "Mexican"
+        },
+        {
+            "name": "Freddys",
+            "cuisineType": "Fast Food, American"
+        },
+        {
+            "name": "Hoppy Monk",
+            "cuisineType": "Bar, American"
+        },
+        {
+            "name": "McDonalds",
+            "cuisineType": "Fast Food, American"
+        },
+        {
+            "name": "schlotzsky's",
+            "cuisineType": "Fast Food, American"
+        },
+        {
+            "name": "las palapas",
+            "cuisineType": "Fast Food, Mexican"
+        },
+        {
+            "name": "Tommys Tacos",
+            "cuisineType": "Fast Food, Mexican"
+        },
+        {
+            "name": "Taco Cabana",
+            "cuisineType": "Fast Food, Mexican"
+        },
+        {
+            "name": "Tacos and Salsa",
+            "cuisineType": "Fast Food, Mexican"
+        },
+        {
+            "name": "El Chaparral",
+            "cuisineType": "Mexican"
+        },
+        {
+            "name": "Chick-Fill-A",
+            "cuisineType": "Fast Food, American"
+        },
+        {
+            "name": "Shake Shack",
+            "cuisineType": "Fast Food, American"
+        },
+        {
+            "name": "Blanco BBQ",
+            "cuisineType": "Fast Food, American, BBQ"
+        },
+        {
+            "name": "Poppeys",
+            "cuisineType": "Fast Food, American"
+        },
+        {
+            "name": "Whataburger",
+            "cuisineType": "Fast Food, American"
+        },
+        {
+            "name": "KFC",
+            "cuisineType": "Fast Food, American"
+        },
+        {
+            "name": "Little Italy",
+            "cuisineType": "Italian"
+        },
+        {
+            "name": "Demos Greek Food",
+            "cuisineType": "Greek"
+        },
+        {
+            "name": "Dairy Queen",
+            "cuisineType": "Fast Food, American"
+        },
+        {
+            "name": "Wingstop",
+            "cuisineType": "Fast Food, American, Wings"
+        },
+        {
+            "name": "Buffalo Wild Wings",
+            "cuisineType": "Fast Food, American, Wings"
+        },
+        {
+            "name": "Bill Miller Bar-B-Q",
+            "cuisineType": "Fast Food, American, BBQ"
+        },
+        {
+            "name": "Mod Pizza",
+            "cuisineType": "Fast Food, American, Pizza"
+        },
+        {
+            "name": "EZ'S",
+            "cuisineType": "American"
+        },
+        {
+            "name": "McAlister's Deli",
+            "cuisineType": "American"
+        },
+        {
+            "name": "Panera",
+            "cuisineType": "American, Bakery"
+        },
+        {
+            "name": "Starbucks",
+            "cuisineType": "American, Bakery"
+        },
+        {
+            "name": "Freetail Brewing Co.",
+            "cuisineType": "American, Bar"
+        },
+        {
+            "name": "Sonic",
+            "cuisineType": "Fast Food, American"
+        },
+        {
+            "name": "Canes",
+            "cuisineType": "Fast Food, American"
+        }
+    ]
+}

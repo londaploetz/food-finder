@@ -16,6 +16,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import UserAbout from "../UserAbout/UserAbout.js";
 import Favorites from "../Favorites/Favorites";
 
+
 function FilterRestaurants(props) {
 
     const [food, setFood] = useState(""); 
