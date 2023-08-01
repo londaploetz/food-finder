@@ -21,22 +21,23 @@ import FriendsList from '../Components/Friends/FriendsList';
 import AddFriends from '../Components/Friends/AddFriends';
 import SelectPlace from "../Components/Restaurants/SelectPlace"; 
 import SortRestaurants from '../Components/Restaurants/SortRestaurants';
+import Favorites from '../Components/Favorites/Favorites';
 
 const Home = () => {
     const { displayName } = useContext(AuthContext);
     const navigate = useNavigate();
 
 
-    const handleLogout = () => {
-        const auth = getAuth();
-        signOut(auth).then(() => {
-          // Sign-out successful.
-          navigate("/Login");
-          // console.log("Signed out successfully")
-        }).catch((error) => {
-          // An error happened.
-        });
-      }
+    // const handleLogout = () => {
+    //     const auth = getAuth();
+    //     signOut(auth).then(() => {
+    //       // Sign-out successful.
+    //       navigate("/Login");
+    //       // console.log("Signed out successfully")
+    //     }).catch((error) => {
+    //       // An error happened.
+    //     });
+    //   }
     
 
 
@@ -44,11 +45,12 @@ const Home = () => {
         <div className="home-bgr">
             <Header>
             </Header>
-            <Container className='home-food-user'>
-                <Row>
-                    <Col sm={4}>
+            <Container className='home-food-user' fluid={true}>
+                <Row className='home-food-row'>
+                    <Col className= "userabout-col" sm={4}>
                         <UserAbout>
                         </UserAbout>
+                      
                     </Col>
                     <Col sm={8}>
                         <div className="food-content">
@@ -57,11 +59,11 @@ const Home = () => {
                     </Col>
                 </Row>
             </Container>
-            <AddFriends> </AddFriends>
-          <SortRestaurants> </SortRestaurants>
-            <button className="logout-btn" onClick={handleLogout}>
+         
+            <SelectPlace> </SelectPlace>
+            {/* <button className="logout-btn" onClick={handleLogout}>
                 Logout  
-            </button> 
+            </button>  */}
           
         </div>
     )

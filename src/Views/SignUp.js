@@ -114,7 +114,6 @@ const Signup = () => {
 
     return (
         <div >
-
             <Accordion className='accordion' defaultActiveKey="0">
                 <Card className='card'>
                     <Card.Header className='card-header'>

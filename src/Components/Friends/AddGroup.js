@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import AddFriends from "./AddFriends";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { Col } from "react-bootstrap";
+import {Row} from "react-bootstrap"; 
+import "./friends.css"
 
 function AddGroup({ friendsUsernameInput, handleFriendsChange, addFriends, friends, getFriends }) {
     const [showFriends, setShowFriends] = useState(false)
-
 
     const showFriendsList = (e) => {
 
@@ -18,30 +20,32 @@ function AddGroup({ friendsUsernameInput, handleFriendsChange, addFriends, frien
         console.log(showFriends)
     }
 
-
-
     return (
-        <Form >
-            <Form.Group controlId="formBasicEmail">
-                <Form.Label>Display Name</Form.Label>
+        <Row xs={4}>
+        <Form className="find-friends-form">
+            <Form.Group className="find-friends-group" controlId="formdisplayName">
+                <Form.Label></Form.Label>
                 <Form.Control
                     value={friendsUsernameInput}
                     name="displayName"
-                    placeholder="friends displayName"
+                    className="form-control"
+                    placeholder="Friends Displayname"
                     onChange={handleFriendsChange}
                 />
+                <Button className="addfriends-btn" onClick={addFriends}>
+                Add Friend
+            </Button>
             </Form.Group>
 
-            <Button onClick={addFriends}>
-                Submit
-            </Button>
-            <Button className="switch-btn" onClick={showFriendsList}> {showFriends === false ? "show friends" : "close"} </Button>
+            
+            <Button className="switch-btn" onClick={showFriendsList}> {showFriends === false ? "Show Friends" : "Close Friends"} </Button>
             {showFriends === true && friends.map((friend, i) => (
                 <h1 key={i} > {friend.displayName} </h1>
             ))
             }
 
         </Form>
+        </Row>
     );
 }
 

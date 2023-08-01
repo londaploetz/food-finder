@@ -1,10 +1,50 @@
 .profile{
-background-color: rgb(0, 180, 24);
-width: 100%;
-height: 100%;
-position: relative;
+background-color: #7f8ac7;
+
 }
 
 .profileName{
-    background-color: blueviolet
+    position: relative;
+    top: 0px;
+    font-size: 27px;
+}
+.userabout-txt{
+font-size: 20px;
+}
+.edit-btn{
+    color:  #7f8ac7;
+    border: #7f8ac7;
+    background-color: rgb(250, 248, 165);
+    border-radius: 10px;
+    margin-left: 12px;
+    position: relative;
+    top: 4px;
+}
+.user-flex{
+display: flex;
+position: relative;
+flex-direction: row;
+}
+
+.pic1{
+position: relative;
+border-radius: 100%;
+background-size: contain;
+width: 20ch;
+height: 19ch;
+margin: 22px;
+}
+
+.pics-profile-sm{
+    position: relative;
+    border-radius: 100%;
+    background-size: contain;
+    width: 20ch;
+    height: 20ch;
+    margin: 2ch;
+}
+.pics-choice-sm{
+    position: relative;
+    align-items: center;
+    padding-left: 20px;
 }

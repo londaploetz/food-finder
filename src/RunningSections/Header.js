@@ -10,7 +10,7 @@ function Header() {
     const { handleLogout, displayName } = useContext(AuthContext);
     return (
         <div className="header">
-            <h1 className="welcome-header"> Welcome, {displayName}!</h1>
+         
         </div>
 
 

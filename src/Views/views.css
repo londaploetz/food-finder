@@ -180,8 +180,8 @@ main {
 .card {
     background-color: rgb(255, 253, 247);
     border: none;
-    padding-bottom: 4ch;
-    padding-top: 4ch;
+    position: relative;
+
 }
 
 .custom-toggle {
@@ -226,15 +226,25 @@ main {
 }
 
 .logout-btn{
-    color: rgb(245, 245, 245);
-    /* border: 1px solid rgb(255, 255, 255); */
-    border: none;
-    border-radius: 10px;
-    background-color:  #7f8ac7;
-    top: 50ch;
-    position: relative;
-    left: 70ch;
-    font-size: 20px;
-    font-family: 'Comfortaa', cursive;
+
 }
 
+.home-food-user{
+background-color: rgba(190, 196, 228, 0);
+    max-width: 100%;
+    position: relative;
+  top: 1ch;
+ 
+}
+.home-food-row{
+    position: relative;
+  padding: 0 !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+}
+
+.userabout-col{
+    background-color: #7f8ac7;
+}

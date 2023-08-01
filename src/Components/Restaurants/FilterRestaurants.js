@@ -11,6 +11,7 @@ import "./restaurants.css"
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Button } from "react-bootstrap";
 import { AuthProvider } from '../../provider/AuthProvider';
 import { AuthContext } from "../../provider/AuthProvider";
 import UserAbout from "../UserAbout/UserAbout.js";
@@ -119,7 +120,7 @@ function FilterRestaurants(props) {
                             value={food}
                         />
 
-                        <button type="submit" className="food-submit-btn" onClick={addFood}> save food </button>
+                        <Button type="submit" className="food-submit-btn" onClick={addFood}> Add Restaurants </Button>
                     </form>
                 </Row>
 
@@ -127,19 +128,22 @@ function FilterRestaurants(props) {
                     {
                         foodCollection.length > 0 && foodCollection.map((food, i) => (
                             <h1 key={i}
-                                className="food-list">{food.food} {food.uid}
-                                <button onClick={() => {handleFav(food.id)}} > </button>
-                                <button onClick={() => {deleteFood(food.id)}} > </button>
+                                className="food-list">{food.food} 
+                                <Button className= "fav-btn" onClick={() => {handleFav(food.id)}} > Fav </Button>
+                                <Button className= "fav-btn" onClick={() => {deleteFood(food.id)}} > Delete </Button>
                             </h1>
 
                         ))
                     }
-                    <Favorites
+              
+                       
+                </Row>
+                <Row> <h1> {displayName}'s Favorites</h1>
+                 <Favorites 
                         favList = {favList}
                         deleteFav = {deleteFav}
-                    />
-                  
-                </Row>
+                    /> 
+                    </Row>
             </Container>
         </>
     )

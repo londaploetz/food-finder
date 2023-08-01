@@ -1,0 +1,9 @@
+.remove-fav-btn{
+    color:  #7f8ac7;
+    border: #7f8ac7;
+    background-color: rgb(250, 248, 165);
+    border-radius: 10px;
+    margin-left: 12px;
+    position: relative;
+    margin-top: 5px;
+}

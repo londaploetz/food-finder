@@ -8,7 +8,7 @@ const SortRestaurants = () => (
 
  <div>
         {foodPlaces.restaurants.map((place, index) => (
-            <SelectPlace name={place.name} cuisineType={place.cuisineType} key={index} />
+            <SelectPlace name={place.name} cuisineType={place.cuisineType} key={index} place={place} />
         ))}
  
 </div>

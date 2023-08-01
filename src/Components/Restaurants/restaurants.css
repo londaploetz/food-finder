@@ -15,7 +15,7 @@ left: 15px;
     background-color: #d3d8f5;
 }
 .food-container{
-    /* width: 100%; */
+    width: 100%;
     background-color: #7f8ac7;
     position: relative;
     
@@ -33,16 +33,28 @@ position: relative;
 text-align: center;
 
 }
-.carousel-wrapper{
+
+.fav-btn{
+    color:  #7f8ac7;
+    border: #7f8ac7;
+    background-color: rgb(250, 248, 165);
+    border-radius: 10px;
+    margin-left: 12px;
     position: relative;
-    width: 900px;
-    height: 400px;
-    background-color: aqua;
-    color: black;
-}
-.carousel-caption{
-    position: relative;
-    color: black;
-    font-size: 20px;
+  
 
 }
+.next-btn{   
+    width: 20%;
+    color:  #7f8ac7;
+    border: #7f8ac7;
+    background-color: rgb(250, 248, 165);
+    border-radius: 10px;
+    margin-left: 12px;
+    position: relative;
+}
+
+    .friends-food-flex{
+position: relative;
+top: 30px;
+    }

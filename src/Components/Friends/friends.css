@@ -1,0 +1,34 @@
+.find-friends-form{
+width: 80%;
+position: relative;
+margin-left: 20px;
+background-color: #7f8ac7;
+}
+.switch-btn{
+    color:  #7f8ac7;
+    border: #7f8ac7;
+    background-color: rgb(250, 248, 165);
+    border-radius: 10px;
+ 
+    position: relative;
+    margin-top: 5px;
+}
+
+.find-friends-group{
+    display: flex;
+    flex-direction: row;
+}
+.addfriends-btn{
+    color:  #7f8ac7;
+    border: #7f8ac7;
+    background-color: rgb(250, 248, 165);
+    border-radius: 10px;
+    margin-left: 22px;
+    position: relative;
+    margin-top: 5px;
+}
+.form-control{
+    position: relative;
+    top: 10px;
+    left: 10px;
+}

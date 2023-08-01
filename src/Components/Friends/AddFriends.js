@@ -17,7 +17,7 @@ function AddFriends() {
   const { currentUID } = useContext(AuthContext);
   const [friendsUsernameInput, setFriendsUsernameInput] = useState('')
   const [friends, setFriends] = useState([]);
-  const [user, setUser] = useState();
+  const [userContext, setUserContext] = useState();
   const [userId, setUserId] = useState(currentUID);
 
 
@@ -34,8 +34,7 @@ function AddFriends() {
     querySnapshot.forEach((doc) => {
      
       console.log("group", doc.id, " => ", doc.data().group)
-      setUser(doc.data())
-
+      setUserContext(doc.data())
       setFriends(doc.data().group)
     });
   }
@@ -52,13 +51,15 @@ function AddFriends() {
       console.log("newFriendProfile", newFriendProfile)
       const userAddedNewFriend = {
         group: newFriendProfile,
-        id: user.id,
-        displayName: user.displayName
+        id: userContext.id,
+        displayName: userContext.displayName, 
+        fistName: userContext.fistName, 
+        lastName: userContext.lastName
       }
       
       setFriends(newFriendProfile)
       console.log(newFriendProfile)
-      setUser(userAddedNewFriend);
+      setUserContext(userAddedNewFriend);
       const newFriends = doc(db, "users", currentUID)
       setDoc(newFriends, userAddedNewFriend)
       // console.log(currentUID)
@@ -71,12 +72,11 @@ function AddFriends() {
 
   useEffect(() => {
     if (currentUID !== null) {
-      setUserId(currentUID)
-      console.log(user)
+      console.log(userContext)
       console.log(friends)
     getFriends()
     }
-  }, [currentUID, userId]);
+  }, [currentUID]);
 
   return (
     <FriendsList
