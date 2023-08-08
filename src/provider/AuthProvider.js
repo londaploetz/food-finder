@@ -12,16 +12,17 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
 
-  const [displayName, setDisplayName] = useState('')
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [email, setEmail] = useState('')
+  const [displayName, setDisplayName] = useState(''); 
+  const [firstName, setFirstName] = useState(''); 
+  const [lastName, setLastName] = useState(''); 
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [currentUID, setCurrentUID] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
   const [error, seterror] = useState("");
   const [aboutMe, setAboutMe] = useState("hello");
-  const [favList, setFavList] = useState("")
+  const [favList, setFavList] = useState(""); 
+  const [profilePic, setProfilePic] = useState();  
   const navigate = useNavigate();
 
 
@@ -66,6 +67,7 @@ export const AuthProvider = ({ children }) => {
         lastName: lastName,
         aboutMe: aboutMe, 
         group: [],
+        profilePic: profilePic
       });
 
       return true
@@ -146,6 +148,8 @@ export const AuthProvider = ({ children }) => {
       lastName,
       setFirstName,
       setLastName, 
+      profilePic, 
+      setProfilePic
     
     }}>{children}</AuthContext.Provider>
   );
