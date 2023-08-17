@@ -23,67 +23,32 @@ const SelectPlace = () => {
     const [restaurantName, setRestaurantName] = useState("start your food journey");
     const [cuisineType, setCuisineType] = useState("yumm");
     const [counter, setCounter] = useState(0);
-
-
- 
-
-    // var getRand = (function() {
-    //     let nums = []
-    //     let n = foodPlaces.restaurants.length
-    //     for (let i = 0; i <= foodPlaces.restaurants.length ; i++) {
-    //         nums.push(i++) 
-
-    //     } 
-
-    //     var current = [];
-    //     function rand(n) {
-    //         return (Math.random() *n)|0;
-    //     }
-    //     return function() {
-    //       if (!current.length) current = nums.slice();
-    //       return current.splice(rand(current.length), 1);
-    //     }
-    // }());
-
-
-
-    function shuffle(array) {
-        var i = array.length
-        var j = 0
-        var temp;
-        while (i--) {
-            j = Math.floor(Math.random() * (i));
-            // swap randomly chosen element with current element
-            temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-
-        }
-        return array;
-    }
+    const [yes, setYes] = useState(null); 
 
         //increase counter
         const increase = () => {
             const numOfRestaurants = foodPlaces.restaurants.length;
     
                 setCounter(count => count + 1);
-                console.log(counter)
-            
+               
             if (counter === (numOfRestaurants - 1)) {
                 reset()
             }
+            cards()
         };
 
         //decrease counter
-        const decrease = () => {
-            setCounter(count => count - 1);
+        const decrease = () => {  
+        if (counter >= 1 ) {
+              setCounter(count => count - 1);  
+        } else 
+            cards()
         };
 
         //reset counter 
         const reset = () => {
        setCounter(0)
-                console.log("hello")
-                console.log(counter)
+            
             }
         
        function cards() { 
@@ -95,11 +60,16 @@ const SelectPlace = () => {
             return foodPlacesIndex == counter
         }
         )
+       
         setRestaurantName(filterdFoodPlaces[0]["name"]);
         setCuisineType(filterdFoodPlaces[0]["cuisineType"]);
-        increase()
     }
     }
+
+  
+function addYes() {
+    setYes(true); 
+}
 
     return (
         <div>
@@ -109,17 +79,16 @@ const SelectPlace = () => {
                 </Col>
                 <Col>
                     <div className="card text-center">
-                        <div className="card-header">
-                            <h1>{restaurantName}</h1>
+                        <div className="card-header"><Button className="nexr-btn" onClick={addYes}>fav </Button>
+                            <h1>{restaurantName}</h1>  
                         </div>
                         <div className="card-footer text-muted">
                             <div className="card-body">
                                 <h5 className="card-title">{cuisineType}</h5>
                             </div>
-                            {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
-                            <Button className="next-btn" onClick={cards}> Next </Button>
-                            <Button className="next-btn" onClick={increase}> I </Button>
-                            <Button className="next-btn" onClick={reset}> R </Button>
+                            <Button className="next-btn" onClick={increase}> Next </Button>
+                            <Button className="next-btn" onClick={decrease}> Back </Button>
+                            <Button className="next-btn" onClick={reset}> Reset </Button>
                         </div>
                     </div>
                 </Col>
